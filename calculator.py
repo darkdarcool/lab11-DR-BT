@@ -1,3 +1,7 @@
+# https://github.com/darkdarcool/lab11-DR-BT
+# Partner 1: Darren Reddy
+# Partner 2: Bryan Tran
+
 import math
 
 def add(a, b):
