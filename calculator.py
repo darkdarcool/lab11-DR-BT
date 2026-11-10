@@ -14,10 +14,16 @@ def mul(a, b):
     return a * b
 
 def div(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
     return a / b
 
 def logarithm(a, b):
-    return math.log(b, a)
+    if b <= 0 or b == 1:
+        raise ValueError("Your base cannot be less than 0 or equal to 1")
+    if a <= 0:
+        raise ValueError("a must be positive")
+    return math.log(a, b)
 
 def exp(a, b):
     return a ** b

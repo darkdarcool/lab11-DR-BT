@@ -32,8 +32,8 @@ class TestCalculator(unittest.TestCase):
 
     ######## Partner 2
     def test_divide_by_zero(self): # 1 assertion
-        with self.assertRaises(ValueError):
-            div(0, 5)
+        with self.assertRaises(ValueError) as context:
+            div(5, 0)
 
         self.assertEqual(str(context.exception), "Cannot divide by zero")
     # call division function inside, example:
@@ -42,13 +42,13 @@ class TestCalculator(unittest.TestCase):
     #     fill in code
 
     def test_logarithm(self): # 3 assertions
-        self.assertEquals(logarithm(10, 10), 1)
-        self.assertEquals(logarithm(1, 10), 0)
-        self.assertEquals(logarithm(100, 10), 2)
+        self.assertEqual(logarithm(10, 10), 1)
+        self.assertEqual(logarithm(1, 10), 0)
+        self.assertEqual(logarithm(100, 10), 2)
 
 
     def test_log_invalid_base(self): # 1 assertion
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as context:
             logarithm(10, 0)
         self.assertEqual(str(context.exception), "Your base cannot be less than 0 or equal to 1")
     #     # use same technique from test_divide_by_zero
