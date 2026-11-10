@@ -8,12 +8,11 @@ from calculator import *
 
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
-    # def test_add(self): # 3 assertions
-    #     fill in code
+    def test_add(self): # 3 assertions
+        self.assertEqual(add(1, 2), 3)
 
-    # def test_subtract(self): # 3 assertions
-    #     fill in code
-    # ##########################
+    def test_subtract(self): # 3 assertions
+        self.assertEqual(subtract(2,1), 1)
 
     ######## Partner 1
     def test_multiply(self): # 3 assertions
@@ -28,16 +27,23 @@ class TestCalculator(unittest.TestCase):
     # ##########################
 
     ######## Partner 2
-    # def test_divide_by_zero(self): # 1 assertion
-    #     # call division function inside, example:
+    def test_divide_by_zero(self): # 1 assertion
+        with self.assertRaises(ValueError):
+            div(0, 5)
+
+        self.assertEqual(str(context.exception), "Cannot divide by zero")
+    # call division function inside, example:
     #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
     #     #     div(0, 5)
     #     fill in code
 
-    # def test_logarithm(self): # 3 assertions
-    #     fill in code
+    def test_logarithm(self): # 3 assertions
+        self.assertEquals(logarithm(10, 10), 1)
 
-    # def test_log_invalid_base(self): # 1 assertion
+    def test_log_invalid_base(self): # 1 assertion
+        with self.assertRaises(ValueError):
+            logarithm(10, 0)
+        self.assertEqual(str(context.exception), "Your base cannot be less than 0 or equal to 1")
     #     # use same technique from test_divide_by_zero
     #     fill in code
     # ##########################
